@@ -1,0 +1,29 @@
+<h2>{{ 'TITLEREV' | translate }}</h2>
+
+<div ng-init="sorting=['Created(asc)', 'Created(dsc)']">
+
+  <select class="form-control" id="sortingOption" ng-model="sort" ng-options="s for s in sorting">
+    <option value="">-- Sort --</option>
+  </select>
+</div>
+<ul>
+  <li ng-repeat="review in reviews | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
+
+    <h4>{{review.nickname}}</h4>
+    <p>{{review.text}} - {{review.time | date}}</p>
+
+  </li>
+</ul>
+
+<p class="alert alert-danger" ng-show="show">{{ 'ERROR' | translate }}</p>
+
+<em class="pull-right">
+    
+<ul class="pagination">
+  <li><a href="" ng-click="pagination.prevPage()">&laquo;</a></li>
+  <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: n == pagination.page}">
+    <a href="" ng-click="pagination.toPageId(n)">{{n + 1}}</a>
+  </li>
+  <li><a href="" ng-click="pagination.nextPage()">&raquo;</a></li>
+</ul>    
+    </em>

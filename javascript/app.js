@@ -1,0 +1,1 @@
+var app = angular.module("reviewApp", ['pascalprecht.translate', 'simplePagination'])

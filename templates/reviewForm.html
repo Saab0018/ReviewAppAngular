@@ -1,0 +1,11 @@
+<form name="reviewForm">
+  <fieldset class="form-group">
+    <h4> {{'TITLE' | translate }} </h4>
+    <span>{{'NAME' | translate }}</span>
+    <input class="form-control" type="text" name="name" ng-model="nickname" />
+    <span>{{'REVIEW' | translate }}</span>
+    <textarea class="form-control" ng-model="reviewText" name="text" maxlength="255"></textarea>
+    <span>{{'COUNT' | translate }} {{reviewText.length}} (MAX 225)</span>
+    <input type="submit" class="btn btn-primary pull-right" ng-disabled="reviewForm.name.$pristine; reviewForm.text.$pristine" ng-click="addDetail()" value="{{ 'BUTTON' | translate}}" />
+
+  </fieldset>
